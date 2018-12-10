@@ -1,32 +1,33 @@
 import Town from "./TownClass";
 
-let city = new Town('Wroclaw', 'pl', '0b72f178992e5ddc7fa93b511b4a5dff');
+let city = new Town('Wrocław', 'pl', '0b72f178992e5ddc7fa93b511b4a5dff');
 city.createLink();
 city.getJSONfromAPI().then(function (response) {
     let weatherDesc 
-        switch (response.data.weather[0].description) {
-            case response.data.weather[0].description === "clear sky":
-                console.log ("czyste niebo");
+	let weat = response.data.weather[0].description;
+        switch (weat) {
+            case "clear sky":
+                weatherDesc = "czyste niebo";
                 break;
-            case response.data.weather[0].description === "few clouds":
-                console.log("lekkie zachmurzenie");
+            case "few clouds":
+                weatherDesc = "lekkie zachmurzenie";
                 break;
-            case response.data.weather[0].description === "scattered clouds":
-                console.log("rozproszone");
+            case "scattered clouds":
+                weatherDesc = "rozproszone ";
                 break;
             case "broken clouds":
-                console.log("zachmurzenie");
+                weatherDesc = "zachmurzenie";
                 break;
-            case response.data.weather[0].description === "shower rain":
-                console.log("mrzawka");
+            case "shower rain", "light rain":
+                weatherDesc = "lekkie opady";
                 break;
-            case response.data.weather[0].description === "rain":
-                console.log("pada");
+            case "rain":
+                weatherDesc = "pada";
                 break;
-            case response.data.weather[0].description === "thunderstorm":
-                console.log("burza");
-				default :
-				console.log("hgfhg");
+            case "thunderstorm":
+                weatherDesc = "burza";
+			default :
+				weatherDesc = "hgfhg";
 		}
 	
     ;
@@ -45,11 +46,15 @@ city.getJSONfromAPI().then(function (response) {
     console.log(cloudsDesc);
     console.log(windDesc);
     console.log(response);
-    document.getElementById("message1").innerHTML="Todays weather is " + weatherDesc;
-    document.getElementById("message2").innerHTML = "Tempereatura " + tempDesc + " °C";
-    document.getElementById("message3").innerHTML= "Cisnienie " + pressureDesc + " hPa";
-    document.getElementById("message4").innerHTML = "Wilgotność " + humidityDesc + " %";
-    document.getElementById("message5").innerHTML = "Zachmurzenie " + cloudsDesc + " %";
-    document.getElementById("message6").innerHTML = "Prędkość wiatru " + windDesc + " m/s";
+    document.getElementById("message1").innerHTML="Dzisiaj: " + weatherDesc;
+    document.getElementById("message2").innerHTML = "Tempereatura: " + tempDesc + " °C";
+    document.getElementById("message3").innerHTML= "Cisnienie: " + pressureDesc + " hPa";
+    document.getElementById("message4").innerHTML = "Wilgotność: " + humidityDesc + " %";
+    document.getElementById("message5").innerHTML = "Zachmurzenie: " + cloudsDesc + " %";
+    document.getElementById("message6").innerHTML = "Prędkość wiatru: " + windDesc + " m/s";
 
 });
+
+
+
+

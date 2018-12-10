@@ -1,0 +1,12 @@
+
+.icon-wind:before { content: '\e800'; } /* '' */
+.icon-compass:before { content: '\e801'; } /* '' */
+.icon-temperature:before { content: '\e802'; } /* '' */
+.icon-sun:before { content: '\e803'; } /* '' */
+.icon-rain-inv:before { content: '\e804'; } /* '' */
+.icon-clouds-flash-alt:before { content: '\e805'; } /* '' */
+.icon-mist:before { content: '\e806'; } /* '' */
+.icon-fog-cloud:before { content: '\e807'; } /* '' */
+.icon-cloud-sun:before { content: '\e808'; } /* '' */
+.icon-fog:before { content: '\e809'; } /* '' */
+.icon-droplet:before { content: '\e80a'; } /* '' */
