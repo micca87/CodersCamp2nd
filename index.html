@@ -1,38 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="/style/style.css">
-	<link rel="stylesheet" href="CSS/fontello.css" type="text/css" >
-  </head>
-  <body>
-    <div class="container">
-		<div class="eventContainer">
-			<div class = "weatherIcon">
-			</div>
-			
-			<div class =  "weatherDetail">
-			</div>
-		</div>
-		<div class ="condition">
-			<i class=" icon-temperature"></i><p id="message1">test</p>
-		</div>
-		<div class ="condition">
-			<i class=" icon-temperature"></i>	<p id="message2">test</p>
-		</div>
-		<div class ="condition">
-			<i class=" icon-compass"></i>	<p id="message3">test</p>
-		</div>
-		<div class ="condition">
-			<i class=" icon-droplet"></i>	<p id="message4">test</p>
-		</div>
-		<div class ="condition">
-			<i class=" icon-cloud-sun"></i>	<p id="message5">test</p>  
-		</div>
-		<div class ="condition">
-			<i class=" icon-wind"></i>	<p id="message6">test</p>
-		</div>
+</head>
+<body>
+<div id="container">
+    <div id="err"></div>
+    <div id="cityBox">
+        <input type="search" name="cityInput" id="citySearch" placeholder="Search city...">
+        <button id="click" type="submit"><i class="fas fa-search"></i></button>
     </div>
-  </body>
-  <script src="/bundle.js"></script>
+	<div id="overall"></div>
+    <div id="dataBox"></div>
+</div>
+<script src="/bundle.js"></script>
+</body>
+
 </html>
