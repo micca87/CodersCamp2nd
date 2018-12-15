@@ -19,34 +19,35 @@ export default class CityGetter {
         return axios.get(this.createLink());
     }
 
-    weather = function (id) {
-        console.log("showWeatherId");
-        switch (id) {
-            case 800:
+    weather = function (data) {
+		let weatherOverall = data.weather.id;
+        console.log("showWeaherDesc");
+        switch (data) {
+            case 803:
                 console.log("Czyste niebo");
                 this.generateData('data1', "Czyste niebo");
                 break;
-            case 801 >= id < 805:
+            case 801 >= weatherOverall < 805:
                 console.log("Lekkie zachmurzenie");
                 this.generateData('data1', "Lekkie zachmurzenie");
                 break;
-            case 701 >= id < 782:
+            case 701 >= weatherOverall< 782:
                 console.log("Możliw mgła");
                 this.generateData('data1', "Możliwa mgła");
                 break;
-            case 600 >= id < 623:
+            case 600 >= weatherOverall < 623:
                 console.log("Śnieg");
                 this.generateData('data1', "Śnieg");
                 break;
-            case 500 >= id < 532:
+            case 500 >= weatherOverall < 532:
                 console.log("Deszcz");
                 this.generateData('data1', "Deszcz");
                 break;
-            case 300 >= id < 322:
+            case 300 >= weatherOverall < 322:
                 console.log("Mżawka");
                 this.generateData('data1', "Mżawka");
                 break;
-            case  200 >= id < 233:
+            case  200 >= weatherOverall < 233:
                 console.log("Burza");
                 this.generateData('data1', "Burza");
             default :
