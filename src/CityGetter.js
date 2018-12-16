@@ -18,42 +18,41 @@ export default class CityGetter {
     getJSONfromAPI() {
         return axios.get(this.createLink());
     }
-
-    weather = function (data) {
-		let weatherOverall = data.weather.id;
-        console.log("showWeaherDesc");
-        switch (data) {
-            case 803:
+	
+ weatherId = function(id) {
+        console.log(id);
+      
+          if (id >=600 && id <=622){
+              console.log("Śnieg");
+			    this.generateData('data1', "Śnieg");
+		  }
+            else if (id == 800) {
                 console.log("Czyste niebo");
                 this.generateData('data1', "Czyste niebo");
-                break;
-            case 801 >= weatherOverall < 805:
+			}
+            else if (id >=801 && id <=805) {
                 console.log("Lekkie zachmurzenie");
                 this.generateData('data1', "Lekkie zachmurzenie");
-                break;
-            case 701 >= weatherOverall< 782:
-                console.log("Możliw mgła");
+			}
+            else if (id >= 701 && id < 782) {
+                console.log("Możliwa mgła");
                 this.generateData('data1', "Możliwa mgła");
-                break;
-            case 600 >= weatherOverall < 623:
-                console.log("Śnieg");
-                this.generateData('data1', "Śnieg");
-                break;
-            case 500 >= weatherOverall < 532:
+			}
+            else if  (id >= 500 && id < 532) {
                 console.log("Deszcz");
                 this.generateData('data1', "Deszcz");
-                break;
-            case 300 >= weatherOverall < 322:
+			}
+            else if (id >= 300 && id < 322) {
                 console.log("Mżawka");
                 this.generateData('data1', "Mżawka");
-                break;
-            case  200 >= weatherOverall < 233:
+			}
+            else if  (id >= 200 && id < 233) {
                 console.log("Burza");
-                this.generateData('data1', "Burza");
-            default :
-			console.log("fdsfsdf");
-			this.generateData('data1', "fdsfsdf");
-        }
+			this.generateData('data1', "Burza");}
+            else {
+			console.log("Something went wrong.....");
+			this.generateData('data1', "Something went wrong.....");}
+        
     };
 
     searchBtn() {
@@ -73,7 +72,8 @@ export default class CityGetter {
         this.getJSONfromAPI()
             .then((response) => {
                 console.log(response);
-                this.weather(response.data.weather[0].description);
+            
+				this.weatherId(response.data.weather[0].id); 
                 this.generateList(response.data);
 
             })
@@ -133,10 +133,12 @@ export default class CityGetter {
 	 doMagic() {
         let m = document.getElementById("overall");
         m.firstChild.nodeValue = p.textContent;
+		console.log(doMagic());
     }
     getDataListAndShowMagic() {
-        let magic = document.getElementByTagName('p');
-        magic.addEventListener('click', this.doMagic)
+        let magic = document.dataBox.getData;
+        magic.addEventListener('click', this.doMagic);
+		console.log(getDataListAndShowMagic());
     }
 	
 	
