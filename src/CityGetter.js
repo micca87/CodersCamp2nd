@@ -54,7 +54,12 @@ export default class CityGetter {
 			this.generateData('data1', "Something went wrong.....");}
         
     };
-
+    clearContainer() {
+        let container = document.getElementById('dataBox');
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+    }
     searchBtn() {
         this.clearContainer();
         if (document.getElementById("err").firstChild) {
@@ -85,19 +90,32 @@ export default class CityGetter {
             });
 
     }
-
+    showDetails(data) {
+        let m = document.getElementById("overall");
+        m.classList.add("overallInUse");
+        m.innerHTML = data;
+        
+    }
     generateData(x, content) {
         let data = document.createElement('p');
         data.id = x;
         data.innerHTML = content.toString();
-        document.getElementById("dataBox").appendChild(data);
+        document.getElementById("dataBox").appendChild(data).addEventListener('click', () => {
+            this.showDetails(content)
+        }, false);;
     }
 
     generateList = function (data) {
-        let tempDesc = data.main.temp - 273.15;
-        this.generateData('data2', tempDesc);
+        
+        let tempDesc=data.main.temp-273.15;
+        let num;
+        function roundToTwo(tempDesc) {
+            return num = +(Math.round(tempDesc + "e+2") + "e-2");
+        }
+        roundToTwo(tempDesc);
+        this.generateData('data2', num);
         let data2 = document.getElementById('data2');
-        data2.innerHTML = "Tempereatura:  " + data2.innerHTML + " °C";
+        data2.innerHTML = "Temperatura:  " + data2.innerHTML + " °C";
 
         let pressureDesc = data.main.pressure;
         this.generateData('data3', pressureDesc);
@@ -121,25 +139,8 @@ export default class CityGetter {
 
     };
 
-    clearContainer() {
-        let container = document.getElementById('dataBox');
-        while (container.firstChild) {
-            container.removeChild(container.firstChild);
-        }
-    }
+    
 	
-	
-	
-	 doMagic() {
-        let m = document.getElementById("overall");
-        m.firstChild.nodeValue = p.textContent;
-		console.log(doMagic());
-    }
-    getDataListAndShowMagic() {
-        let magic = document.dataBox.getData;
-        magic.addEventListener('click', this.doMagic);
-		console.log(getDataListAndShowMagic());
-    }
 	
 	
 };
